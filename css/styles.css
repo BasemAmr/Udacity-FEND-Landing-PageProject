@@ -22,7 +22,9 @@ h2{
 }
 
 /* Navigation Rules */
-
+.main__hero{
+    text-align: center;
+}
 .page__header{
     background: #ffffff;
     height: 50px;
