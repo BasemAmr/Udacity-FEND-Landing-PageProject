@@ -114,7 +114,7 @@ function addActiveClass(){
 
       if ( link.dataset.nav != _link.dataset.nav && link.classList.contains('active-link') ) {
         
-        link.classList.remove('active--link');
+        link.classList.remove('active-link');
       
       }
 
