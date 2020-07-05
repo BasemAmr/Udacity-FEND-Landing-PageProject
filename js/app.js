@@ -18,9 +18,9 @@
  * 
 */
 
-const navbar = document.getElementById('navbar__list'),
+const navbar = document.getElementById('navbar__list');
 
-      sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -128,6 +128,27 @@ const addActiveClass = () => {
 
 // Scroll to anchor ID using scrollTO event
 
+const clickToScroll = () => {
+
+  for ( let _section of sections ){
+
+    const listId = _section.id;
+ 
+  let _link = document.querySelector(`li[data-nav='${listId}']`);
+
+  _link.addEventListener("click", function() {
+
+    _section.scrollIntoView ({
+
+      behavior: 'smooth'
+
+      });
+
+    });
+
+  }
+
+}
 
 
 /**
@@ -135,10 +156,15 @@ const addActiveClass = () => {
  * Begin Events
  * 
 */
-createNavLists();
-addActiveClass();
+
 // Build menu 
+
+createNavLists();
 
 // Scroll to section on link click
 
+clickToScroll();
+
 // Set sections as active
+
+addActiveClass();
