@@ -135,7 +135,8 @@ const addActiveClass = () => {
  * Begin Events
  * 
 */
-
+createNavLists();
+addActiveClass();
 // Build menu 
 
 // Scroll to section on link click
