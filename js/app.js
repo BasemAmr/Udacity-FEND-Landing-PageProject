@@ -45,6 +45,7 @@ const getActiveSection = () => {
             rectValue = rect.top;
 
             sectionNum = section;
+
       }
 
     }
@@ -88,7 +89,7 @@ const addActiveClass = () => {
 
     // Add Active Class To Section
 
-    let _section = isInViewport();
+    let _section = getActiveSection();
 
     _section.classList.add('active-section');
 
@@ -120,7 +121,7 @@ const addActiveClass = () => {
 
     }
 
-  });
+  })
 
 }
 
