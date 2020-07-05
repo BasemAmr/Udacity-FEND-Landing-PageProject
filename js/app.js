@@ -18,9 +18,9 @@
  * 
 */
 
-const navbar = document.getElementById('navbar__list'),
+const navbar = document.getElementById('navbar__list');
 
-      sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
