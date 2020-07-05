@@ -105,7 +105,7 @@ const addActiveClass = () => {
 
     // Add Active Class To Navigation Links
 
-    const links = document.querySelectorAll('menu__link');
+    const links = document.querySelectorAll('.menu__link');
 
     let _link = document.querySelector(`li[data-nav='${_section.id}']`);
 
