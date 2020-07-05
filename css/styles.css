@@ -259,6 +259,8 @@ h2{
     color: #ffffff;
     position:fixed;
     top:0;
+    left: 144px;
+    right: 144px;
 }
 .navbar__menu ul{
     display: inline-block;
