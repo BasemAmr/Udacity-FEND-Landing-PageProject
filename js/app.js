@@ -18,9 +18,9 @@
  * 
 */
 
-const navbar = document.getElementById('navbar__list');
+const navbar = document.getElementById('navbar__list'),
 
-const sections = document.querySelectorAll('section');
+      sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -30,7 +30,7 @@ const sections = document.querySelectorAll('section');
 
 // Check if the section in the viewport
 
-function isInViewport() {
+const getActiveSection = () => {
 
     let sectionNum = sections[0];
 
@@ -61,7 +61,7 @@ function isInViewport() {
 
 // build the nav
 
-function createNavLists(){
+const createNavLists = () => {
 
   for ( let section of sections ) {
 
@@ -82,7 +82,7 @@ function createNavLists(){
 // Add class 'active' to section when near top of viewport
 
 
-function addActiveClass(){
+const addActiveClass = () => {
 
   window.addEventListener('scroll', function(){
 
@@ -126,7 +126,6 @@ function addActiveClass(){
 
 
 // Scroll to anchor ID using scrollTO event
-
 
 
 
