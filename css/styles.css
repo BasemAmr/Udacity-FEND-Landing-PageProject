@@ -461,7 +461,6 @@ footer{
     background-color: #43484b;
     color: #ffffff;
     font-weight: bold;
-    -webkit-text-stroke: .3px black;
 }
 footer .landing__container{
     text-align: center;
