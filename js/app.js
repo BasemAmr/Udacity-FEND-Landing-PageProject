@@ -12,15 +12,15 @@
  * JS Standard: ESlint
  * 
 */
-const startTime = performance.now();
+
 /**
  * Define Global Variables
  * 
 */
 
-const navbar = document.getElementById('navbar__list'),
+const navbar = document.getElementById('navbar__list');
 
-      sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -30,43 +30,27 @@ const navbar = document.getElementById('navbar__list'),
 
 // Check if the section in the viewport
 
-// const getActiveSection = () => {
+const getActiveSection = () => {
 
-//     let sectionNum = sections[0];
+    let sectionNum = sections[0];
 
-//     let rectValue = 1000000;
+    let rectValue = 1000000;
 
-//     for ( let section of sections ) {
+    for ( let section of sections ) {
 
-//         let rect = section.getBoundingClientRect();
+        let rect = section.getBoundingClientRect();
 
-//         if ( rect.top > -300 & rect.top < rectValue ) {
+        if ( rect.top > -300 & rect.top < rectValue ) {
 
-//             rectValue = rect.top;
+            rectValue = rect.top;
 
-//             sectionNum = section;
+            sectionNum = section;
 
-//       }
+      }
 
-//     }
+    }
 
-//     return sectionNum;
-
-// };
-
-// A helper function that checks if the section is inside the viewport
-
-const isInViewport = (elem) => {
-
-  const bounding = elem.getBoundingClientRect();
-
-  return  (bounding.top >= 0 &&
-
-          bounding.left >= 0 &&
-
-          bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-
-          bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight));
+    return sectionNum;
 
 };
 
@@ -78,110 +62,93 @@ const isInViewport = (elem) => {
 
 // build the nav
 
-// const createNavLists = () => {
-
-//   for ( let section of sections ) {
-
-//     let lists = document.createElement('li');
-
-//     lists.className = 'menu__link';
-
-//     lists.dataset.nav = section.id;
-
-//     lists.textContent = lists.dataset.nav;
-
-//     navbar.appendChild(lists);
-
-//   }
-
-// }
-
 const createNavLists = () => {
-      
-      
-   const appendLists = (item) => {
-   
-      let lists = `<li class="menu__link" data-nav="${item.id}">${item.dataset.nav}</li>;
 
-      navbar.innerHTML = lists
-   
-   }
-                        
-  sections.forEach(appendLists)
+  for ( let section of sections ) {
+
+    let lists = document.createElement('li');
+
+    lists.className = 'menu__link';
+
+    lists.dataset.nav = section.id;
+
+    lists.textContent = lists.dataset.nav;
+
+    navbar.appendChild(lists);
+
+  }
 
 }
 
 // Add class 'active' to section when near top of viewport
 
 
-// const addActiveClass = () => {
+const addActiveClass = () => {
 
-//   window.addEventListener('scroll', function(){
+  window.addEventListener('scroll', function(){
 
-//     // Add Active Class To Section
+    // Add Active Class To Section
 
-//     let _section = getActiveSection();
+    let _section = getActiveSection();
 
-//     _section.classList.add('active-section');
+    _section.classList.add('active-section');
 
-//     for ( let section of sections ) {
+    for ( let section of sections ) {
 
-//       if ( section.id != _section.id && section.classList.contains('active-section') ) {
+      if ( section.id != _section.id && section.classList.contains('active-section') ) {
 
-//         section.classList.remove('active-section');
+        section.classList.remove('active-section');
 
-//       }
+      }
 
-//     }
+    }
 
-//     // Add Active Class To Navigation Links
+    // Add Active Class To Navigation Links
 
-//     const links = document.querySelectorAll('.menu__link');
+    const links = document.querySelectorAll('.menu__link');
 
-//     let _link = document.querySelector(`li[data-nav='${_section.id}']`);
+    let _link = document.querySelector(`li[data-nav='${_section.id}']`);
 
-//     _link.classList.add('active-link');
+    _link.classList.add('active-link');
 
-//     for ( let link of links ) {
+    for ( let link of links ) {
 
-//       if ( link.dataset.nav != _link.dataset.nav && link.classList.contains('active-link') ) {
+      if ( link.dataset.nav != _link.dataset.nav && link.classList.contains('active-link') ) {
         
-//         link.classList.remove('active-link');
+        link.classList.remove('active-link');
       
-//       }
+      }
 
-//     }
+    }
 
-//   })
+  })
 
-// }
+}
 
 
 // Scroll to anchor ID using scrollTO event
 
-// const clickToScroll = () => {
+const clickToScroll = () => {
 
-//   for ( let _section of sections ){
+  for ( let _section of sections ){
 
-//     const listId = _section.id
-  
-  
+    const listId = _section.id;
+ 
+  let _link = document.querySelector(`li[data-nav='${listId}']`);
 
-//   let _link = document.querySelector(`li[data-nav='${listId}']`);
+  _link.addEventListener("click", function() {
 
-//   _link.addEventListener("click", function() {
+    _section.scrollIntoView ({
 
-//     _section.scrollIntoView ({
+      behavior: 'smooth'
 
-//       behavior: 'smooth'
+      });
 
-//       });
+    });
 
-//     });
+  }
 
-//   }
-
-// }
+}
 
 
 /**
@@ -196,12 +163,8 @@ createNavLists();
 
 // Scroll to section on link click
 
-// clickToScroll();
+clickToScroll();
 
 // Set sections as active
 
-// addActiveClass();
-
-const endTime = performance.now();
-
-console.info('This Website Took' + (endTime-startTime) +'millesecond To Load' )
+addActiveClass();
