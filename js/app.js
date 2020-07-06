@@ -97,8 +97,17 @@ const isInViewport = (elem) => {
 // }
 
 const createNavLists = () => {
+      
+      
+   const appendLists = (item) => {
+   
+      let lists = `<li class="menu__link" data-nav="${item.id}">${item.dataset.nav}</li>;
 
-  sections.forEach()
+      navbar.innerHTML = lists
+   
+   }
+                        
+  sections.forEach(appendLists)
 
 }
 
@@ -187,11 +196,11 @@ createNavLists();
 
 // Scroll to section on link click
 
-clickToScroll();
+// clickToScroll();
 
 // Set sections as active
 
-addActiveClass();
+// addActiveClass();
 
 const endTime = performance.now();
 
